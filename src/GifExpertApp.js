@@ -1,4 +1,4 @@
-
+// HOME DE LA APP
 import React, { useState } from 'react';
 
 // components
@@ -8,23 +8,23 @@ import { GifGrid } from './components/GifGrid';
 
 export const GifExpertApp = ( {defaultCategories = []} )  => {
     
-    // Status hook
     const [categories, setCategories ] = useState( defaultCategories );
     
-    // JSX
     return (
         <>
             <h2>You can find GIF's that you want!</h2>
             
-            {/* 'AddCategory' and 'GifExpertApp' communication */}
+            {/* agrega una nueva categoria a 'categories'  */}
             <AddCategory setCategories = { setCategories }/>
             <hr />
             <ol>
                 {
                     categories.map( category => (
+                        
+                        // obtener imagenes
                         <GifGrid
-                            key = {category}
-                            category = {category}  
+                            key = { category }
+                            category = { category }  
                         />
                     ))
                 }
@@ -33,10 +33,3 @@ export const GifExpertApp = ( {defaultCategories = []} )  => {
         </>
     )
 }
-
-
-
-
-
-
-
