@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-// 'setCategories' is function from 'GifExpertApp'
-export const AddCategory = ({setCategories}) => {
+// 'setCategories' actualiza el estado de las categorias en 'GifExpertApp'
+export const AddCategory = ({ setCategories }) => {
     
-    // status hook
     const [ inputValue, setInputValue ] = useState('');
     
-    // Change input textbox <--> Re-writting 'inputValue' status
-    const handleInputChange = (e) => {
-        
+    // Re-write 'inputValue' status
+    const handleInputChange = (e) => {  
         // Unblock to change default input textbox
         setInputValue( e.target.value );
     }
@@ -32,10 +30,16 @@ export const AddCategory = ({setCategories}) => {
     return(
         
         <form onSubmit = { handleSubmit }>
-            <p>{ inputValue }</p>
+            
+            {/* ingreso por teclado del usuario */}
+            <p>{ inputValue }</p> 
+            
+            {/* caja de texto */}
             <input 
                 type = 'text'
-                value = { inputValue }
+                value = { inputValue } 
+                
+                // se activa al oprimir el enter
                 onChange = { handleInputChange }
             />
         </form>
