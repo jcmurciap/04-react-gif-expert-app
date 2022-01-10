@@ -1,19 +1,25 @@
-// useEfect: allow us to apply conditions
+// PROCESA CADA ENTRADA POR TECLADO
+
 import React from 'react';
-import { useFetchGift } from '../hooks/useFetchGift';
-// import { getGifs } from '../helpers/getGifs';
-import { GifGridItem } from './GifGridItem';
 import PropTypes from 'prop-types';
 
 
+import { useFetchGift } from '../hooks/useFetchGift';
+import { GifGridItem } from './GifGridItem';
+
+
+// porque desestructura 'category' como si fuese un objeto????
 export const GifGrid = ({ category }) => {
-        
+    
     const { data:images, loading } = useFetchGift( category );
-  
+    // images: { id, data, url}
+    // loading: bool
+
     return (
         <>
             <h3>{category}</h3>
             { loading && <p>Loading...</p>}
+            
             <div className='card-grid'>
                 {
                     images.map( imgs => (
