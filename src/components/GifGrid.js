@@ -3,21 +3,13 @@ import React from 'react';
 import { useFetchGift } from '../hooks/useFetchGift';
 // import { getGifs } from '../helpers/getGifs';
 import { GifGridItem } from './GifGridItem';
+import PropTypes from 'prop-types';
 
 
 export const GifGrid = ({ category }) => {
-    
-    // const [ images, setImages ] = useState([]);
-    
+        
     const { data:images, loading } = useFetchGift( category );
-
-
-    // useEffect( () => {
-    //     // This is executed when component is renderized by first time.
-    //     getGifs( category ) 
-    //     .then( imgs => setImages( imgs ) ) // The new status of 'images' is the setImages( imgs ) input
-    // }, [ category ] ) // If category change then compile again useEfect.
-    
+  
     return (
         <>
             <h3>{category}</h3>
@@ -36,3 +28,7 @@ export const GifGrid = ({ category }) => {
     )
 };
 
+GifGrid.propTypes = {
+    category: PropTypes.string.isRequired
+}
+ 

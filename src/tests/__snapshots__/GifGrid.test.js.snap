@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GifGrid tests Make snapshot compatible 1`] = `
+<Fragment>
+  <h3>
+    One Punch
+  </h3>
+  <p>
+    Loading...
+  </p>
+  <div
+    className="card-grid"
+  />
+</Fragment>
+`;
+
+exports[`GifGrid tests Show items when are loaded images using \`useFetchGift\`  1`] = `null`;
