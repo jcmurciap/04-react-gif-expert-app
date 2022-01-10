@@ -1,20 +1,17 @@
-// Los custom hooks son una forma de extraer logica de algún componente o logica que se quiere extraer de una manera sencilla para ser usada en otra ocasión.
-
 import { useEffect, useState } from 'react';
 import { getGifs } from '../helpers/getGifs';
 
+// PROCESA CADA ENTRADA POR TECLADO
 export const useFetchGift = ( category ) => {
     
-    // Los hooks pueden tener estado
     const [ state, setState ] = useState({
         data: [],
         loading: true
     });
 
-    
     // Los useEffect NO pueden ser async
     useEffect( () => {
-        getGifs( category )
+        getGifs( category ) // {id, title, url}
         .then( imgs => {
             setState({
                 data: imgs,
@@ -23,5 +20,5 @@ export const useFetchGift = ( category ) => {
         }) 
     }, [ category ])
     
-    return state; // { data: [], loading: true }
+    return state; // {data{id, title, url}, loading}
 }
